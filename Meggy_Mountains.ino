@@ -40,8 +40,9 @@
 #include <MeggyJrSimple.h>    // Required code, line 1 of 2.
 
 int mountains[8] = {0, 0, 0, 0, 0, 0, 0, 0}; // Create initial array with all zeros.
-int SLOPE = 2; // This determines how much the elevation changes between columns.
- 
+int SLOPE = 3; // This determines how much the elevation changes between columns.
+int MAXHEIGHT = 4; // This determines the maximum height of the mountains.
+
 void setup()                    // run once, when the sketch starts
 {
   MeggyJrSimpleSetup();      // Required code, line 2 of 2.
@@ -66,7 +67,7 @@ void DrawMountains()
     }
   }
 }
-/*
+
 void UpdateMountains()
 {
   for (int i = 0; i < 7; i++) // copy everything to the right
@@ -80,13 +81,13 @@ void UpdateMountains()
     mountains[7] += newHeight; // add 
   else
     mountains[7] -= newHeight; // or subtract
-  if (mountains[7] > 7) // correct for out of bounds errors
-    mountains[7] = 7;
+  if (mountains[7] > MAXHEIGHT) // correct for out of bounds errors
+    mountains[7] = MAXHEIGHT;
   if (mountains[7] < 0)
     mountains[7] = 0;
 }
-*/
 
+/*
 void UpdateMountains()
 {
   for (int i = 0; i < 7; i++) // copy everything to the right
@@ -99,4 +100,4 @@ void UpdateMountains()
   if (mountains[7] < 0)
     mountains[7] = 0;
 }
-
+*/
