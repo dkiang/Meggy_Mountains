@@ -40,7 +40,8 @@
 #include <MeggyJrSimple.h>    // Required code, line 1 of 2.
 
 int mountains[8] = {0, 0, 0, 0, 0, 0, 0, 0}; // Create initial array with all zeros.
-
+int SLOPE = 2; // This determines how much the elevation changes between columns.
+ 
 void setup()                    // run once, when the sketch starts
 {
   MeggyJrSimpleSetup();      // Required code, line 2 of 2.
@@ -74,7 +75,7 @@ void UpdateMountains()
   }
   // look at the last amount and create a new slope no more than two high.
   int lastHeight = mountains[7];
-  int newHeight = random(2); // generate an elevation change
+  int newHeight = random(SLOPE); // generate an elevation change
   if (random(10) > 4) // Half the time
     mountains[7] += newHeight; // add 
   else
